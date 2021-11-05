@@ -65,11 +65,21 @@ class Book {
 
     localStorage.setItem('books', JSON.stringify(books));
   };
+
+  // show date function
+  static showDate() {
+    const { DateTime } = luxon; // eslint-disable-line
+    const myDate = document.querySelector('#date');
+    const showMyDate = document.createElement('div');
+    showMyDate.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+    myDate.appendChild(showMyDate);
+  }
 }
 
 // display books list on window load
 window.addEventListener('DOMContentLoaded', () => {
   Book.displayBooks();
+  Book.showDate(); // Show date
 });
 
 // Add book Event
@@ -83,6 +93,8 @@ document.getElementById('form').addEventListener('submit', (e) => {
   const book = new Book(id, title, author);
   Book.addBookToList(book);
   Book.addBook(book);
+  e.target.reset();
+  return false;
 });
 
 // To remove a book event
