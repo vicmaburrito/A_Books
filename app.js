@@ -38,6 +38,8 @@ class Book {
     button.setAttribute('class', 'delete');
     button.textContent = 'Remove';
     list.appendChild(li);
+    // eslint-disable-next-line no-use-before-define
+    listLinkClick();
   };
 
   // delete book from the browser view
