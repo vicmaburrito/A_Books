@@ -83,12 +83,10 @@ document.getElementById('form').addEventListener('submit', (e) => {
   const book = new Book(id, title, author);
   Book.addBookToList(book);
   Book.addBook(book);
-  e.target.reset();
-  return false;
 });
 
 // To remove a book event
-document.getElementById('bookList').addEventListener('click', (e) => {
+document.getElementById('books-data').addEventListener('click', (e) => {
   Book.deleteBook(e.target);
   Book.removeBook(e.target.previousElementSibling.textContent);
 });
